@@ -23,27 +23,24 @@ import {
 
 function TitleAndChildren({ children, title }) {
   return (
-    <div>
-      <h2>{title}</h2>
+    <div style={{ margin: 10 }}>
+      <h2 className={"subtitle"}>{title}</h2>
       {children}
     </div>
   );
 }
 
-function App() {
-  const [size, setSize] = React.useState<[number, number]>([100, 30]);
-  const [state, setState] = React.useState(false);
-  const sequencerRef = React.useRef<null | Nexus.Sequencer>(null);
+function Core() {
   return (
-    <div>
-      <section>
-        <h2>Core</h2>
-        <div style={{ display: "flex" }}>
+    <section className="section">
+      <div className="container">
+        <h2 className="title">Core</h2>
+        <div style={{ display: "flex", flexWrap: "wrap" }}>
           <TitleAndChildren title={"Toggle"}>
-            <Toggle size={size} state={state} />
+            <Toggle size={[100, 30]} state={false} />
           </TitleAndChildren>
           <TitleAndChildren title={"Button"}>
-            <Button size={size} mode={"button"} state={state} />
+            <Button size={[100, 30]} mode={"button"} state={false} />
           </TitleAndChildren>
           <TitleAndChildren title={"Dial"}>
             <Dial
@@ -64,10 +61,18 @@ function App() {
             <Slider size={[120, 20]} onChange={console.log} />
           </TitleAndChildren>
         </div>
-      </section>
-      <section>
-        <h2>General</h2>
-        <div style={{ display: "flex" }}>
+      </div>
+    </section>
+  );
+}
+
+function General() {
+  const sequencerRef = React.useRef<null | Nexus.Sequencer>(null);
+  return (
+    <section className="section">
+      <div className="container">
+        <h2 className="title">General</h2>
+        <div style={{ display: "flex", flexWrap: "wrap" }}>
           <TitleAndChildren title="Envelope">
             <Envelope points={[{ x: 0.1, y: 0.4 }]} />
           </TitleAndChildren>
@@ -138,34 +143,58 @@ function App() {
             <TextButton text={"Hi"} alternateText={"Bye"} state={true} />
           </TitleAndChildren>
         </div>
-        <div>
-          <h2>Mobile</h2>
-          <div style={{ display: "flex" }}>
-            <TitleAndChildren title={"Tilt"}>
-              <Tilt
-                size={[200, 100]}
-                active={true}
-                onChange={tilt => {
-                  console.log("Tilt changed", tilt);
-                }}
-              />
-            </TitleAndChildren>
-          </div>
+      </div>
+    </section>
+  );
+}
+
+function Mobile() {
+  return (
+    <section className="section">
+      <div className="container">
+        <h2 className="title">Mobile</h2>
+        <div style={{ display: "flex", flexWrap: "wrap" }}>
+          <TitleAndChildren title={"Tilt"}>
+            <Tilt
+              size={[200, 100]}
+              active={true}
+              onChange={tilt => {
+                console.log("Tilt changed", tilt);
+              }}
+            />
+          </TitleAndChildren>
         </div>
-        <div>
-          <h2>Spatialization</h2>
-          <div style={{ display: "flex" }}>
-            <TitleAndChildren title={"Pan"}>
-              <Pan value={0} />
-            </TitleAndChildren>
-            <TitleAndChildren title={"Pan2D"}>
-              <Pan2D onChange={console.warn} />
-            </TitleAndChildren>
-          </div>
+      </div>
+    </section>
+  );
+}
+
+function Spatialization() {
+  return (
+    <section className="section">
+      <div className="container">
+        <h2 className="title">Spatialization</h2>
+        <div style={{ display: "flex", flexWrap: "wrap" }}>
+          <TitleAndChildren title={"Pan"}>
+            <Pan value={0} />
+          </TitleAndChildren>
+          <TitleAndChildren title={"Pan2D"}>
+            <Pan2D onChange={console.warn} />
+          </TitleAndChildren>
         </div>
-        <div />
-      </section>
-    </div>
+      </div>
+    </section>
+  );
+}
+
+function App() {
+  return (
+    <React.Fragment>
+      <Core />
+      <General />
+      <Mobile />
+      <Spatialization />
+    </React.Fragment>
   );
 }
 

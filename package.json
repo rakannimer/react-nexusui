@@ -16,6 +16,7 @@
     "@types/react-dom": "^16.8.3",
     "babel-jest": "^24.7.1",
     "jest": "^24.7.1",
+    "nexusui": "^2.0.10",
     "parcel-bundler": "^1.12.3",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
@@ -24,14 +25,15 @@
     "rollup-plugin-typescript2": "^0.20.1",
     "ts-jest": "^24.0.1",
     "typescript": "^3.4.1",
-    "web-audio-test-api": "^0.5.2",
-    "nexusui": "^2.0.10"
+    "web-audio-test-api": "^0.5.2"
   },
-  "dependencies": {},
+  "dependencies": {
+    "bulma": "^0.7.4"
+  },
   "peerDependencies": {
+    "nexusui": "^2.0.10",
     "react": ">=16.8.0",
-    "react-dom": ">=16.8.0",
-    "nexusui": "^2.0.10"
+    "react-dom": ">=16.8.0"
   },
   "repository": {
     "type": "git",
