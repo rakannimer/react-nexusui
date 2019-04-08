@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Toggle works 1`] = `
+<div>
+  <div
+    id="nexus-ui-toggle-1"
+    nexus-ui=""
+    style="width: 120px; height: 40px;"
+  >
+    <svg
+      height="40"
+      style="cursor: pointer;"
+      width="120"
+    >
+      <rect
+        fill="#eee"
+        height="20"
+        rx="10"
+        ry="10"
+        width="60"
+        x="30"
+        y="10"
+      />
+      <circle
+        cx="40"
+        cy="20"
+        fill="#2bb"
+        r="20"
+      />
+    </svg>
+  </div>
+</div>
+`;
