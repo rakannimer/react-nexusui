@@ -8,6 +8,8 @@
   "license": "MIT",
   "scripts": {
     "start": "parcel demo/index.html",
+    "build:demo": "parcel build demo/index.html  -d demo-dist",
+    "deploy:demo": "npm run build:demo && cd demo-dist && surge --domain react-nexusui-demo.surge.sh",
     "build": "rollup -c",
     "test": "jest"
   },

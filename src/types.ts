@@ -6,6 +6,7 @@ export type ToggleProps = {
   size?: Size;
   state?: boolean;
   onChange?: (state: boolean) => any;
+  onReady?: (toggle: Nexus.Toggle) => any;
 };
 
 export type ButtonMode = "button" | "aftertouch" | "impulse" | "toggle";
@@ -13,8 +14,9 @@ export type ButtonMode = "button" | "aftertouch" | "impulse" | "toggle";
 export type ButtonProps = {
   size?: Size;
   mode?: ButtonMode;
-  state?: boolean;
-  onChange?: (state: boolean) => any;
+  state?: boolean | number;
+  onChange?: (state: boolean | number) => any;
+  onReady?: (button: Nexus.Button) => any;
 };
 
 export type DialProps = {
@@ -85,7 +87,7 @@ export type PianoProps = {
   lowNote?: number;
   highNote?: number;
   onChange?: (change: { note: number; state: boolean }) => any;
-  onReady?: (piano: Nexus.piano) => any;
+  onReady?: (piano: Nexus.Piano) => any;
 };
 
 export type RadioButtonProps = {

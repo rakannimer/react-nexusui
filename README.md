@@ -1,13 +1,12 @@
 # React NexusUI
 
-Thin, typed wrappers for the [NexusUI](https://github.com/nexus-js/ui/) HTML5 interfaces to build Web Audio interfaces with React & NexusUI
+Thin, typed React component wrappers for the [NexusUI](https://github.com/nexus-js/ui/) HTML5 Web Audio interfaces.
 
 ## Install 
 
 ```sh
 npm i nexusui react-nexusui
 ```
-
 
 ## Usage
 
@@ -21,7 +20,22 @@ function App(){
 }
 ```
 
-
+- [React NexusUI](#react-nexusui)
+  - [Install](#install)
+  - [Usage](#usage)
+  - [Components](#components)
+    - [Core](#core)
+    - [General](#general)
+    - [Mobile](#mobile)
+    - [Spatialization](#spatialization)
+    - [Visualization](#visualization)
+  - [API](#api)
+    - [Button](#button)
+      - [size](#size)
+      - [mode](#mode)
+      - [state](#state)
+      - [onChange](#onchange)
+      - [onReady](#onready)
 
 
 ## Components
@@ -64,162 +78,33 @@ function App(){
 
 Check http://nexus-js.github.io/ui/api/ 
 
+### Button 
 
-```typescript
+#### size 
 
-export type Size = [number, number];
+> [width: number, height: number] ~ optional
 
-export type ToggleProps = {
-  size?: Size;
-  state?: boolean;
-  onChange?: (state: boolean) => any;
-};
+An array containing width & height of the element
 
-export type ButtonMode = "button" | "aftertouch" | "impulse" | "toggle";
+#### mode
 
-export type ButtonProps = {
-  size?: Size;
-  mode?: ButtonMode;
-  state?: boolean;
-  onChange?: (state: boolean) => any;
-};
+> "button" | "aftertouch" | "impulse" | "toggle" ~ optional
 
-export type DialProps = {
-  size?: Size;
-  interaction?: "radial" | "vertical" | "horizontal";
-  mode?: "absolute" | "relative";
-  min?: number;
-  max?: number;
-  step?: number;
-  value?: number;
-  onChange?: (value: number) => any;
-};
+Interaction mode
 
-export type NumberProps = {
-  size?: Size;
-  min?: number;
-  max?: number;
-  step?: number;
-  value?: number;
-  onChange?: (value: number) => any;
-};
+#### state
 
-export type PositionProps = {
-  size?: Size;
-  mode?: "absolute" | "relative";
-  x?: number;
-  y?: number;
-  minX?: number;
-  minY?: number;
-  maxX?: number;
-  maxY?: number;
-  stepX?: number;
-  stepY?: number;
-  onChange?: (value: { x: number; y: number }) => any;
-};
-export type SliderProps = {
-  size?: Size;
-  mode?: "absolute" | "relative";
-  min?: number;
-  max?: number;
-  step?: number;
-  value?: number;
-  onChange?: (value: number) => any;
-};
-export type EnvelopeProps = {
-  size?: Size;
-  noNewPoints?: boolean;
-  points?: { x: number; y: number }[];
-  onChange?: (points: { x: number; y: number }[]) => any;
-};
+> boolean | number ~ optional
 
-export type MultisliderProps = {
-  size?: Size;
-  numberOfSliders?: number;
-  min?: number;
-  max?: number;
-  step?: number;
-  candycane?: number;
-  values?: number[];
-  smoothing?: number;
-  mode?: "bar" | "line";
-  onChange?: (change: { index: number; value: number }) => any;
-};
+#### onChange
 
-export type PianoProps = {
-  size?: Size;
-  mode?: "button" | "toggle" | "impulse";
-  lowNote?: number;
-  highNote?: number;
-  onChange?: (change: { note: number; state: boolean }) => any;
-  onReady?: (piano: Nexus.piano) => any;
-};
+> function(state: boolean | number) ~ optional
 
-export type RadioButtonProps = {
-  size?: Size;
-  numberOfButtons?: number;
-  active?: number;
-  onReady?: (button: Nexus.RadioButton) => any;
-  onChange?: (change: number) => any;
-};
+Called everytime the interface changes
 
-export type SelectChange = { value: string; index: number };
+#### onReady
 
-export type SelectProps = {
-  size?: Size;
-  options: string[];
-  value?: string;
-  selectedIndex?: number;
-  onReady?: (select: Nexus.Select) => any;
-  onChange?: (change: SelectChange) => any;
-};
+> function(button: Nexus.Button) ~ optional
 
-export type SequencerProps = {
-  size?: Size;
-  mode?: ButtonProps["mode"];
-  rows?: number;
-  columns?: number;
-  onChange?: (change: SequencerChange) => any;
-  onStep?: (change: boolean[]) => any;
-  onReady?: (select: Nexus.Sequencer) => any;
-  r?: React.Ref<null | Nexus.Sequencer>;
-};
+Use this when you need access to the Nexus interface imperative API.
 
-export type SequencerChange = { row: number; column: number; state: boolean };
-
-export type TextButtonProps = {
-  size?: Size;
-  state?: boolean;
-  text?: string;
-  alternateText?: string;
-  onChange?: (change: string) => any;
-  onReady?: (textbutton: Nexus.TextButton) => any;
-};
-
-export type TiltProps = {
-  size?: Size;
-  active?: boolean;
-  onChange?: (change: { x: number; y: number; z: number }) => any;
-  onReady?: (tilt: Nexus.Tilt) => any;
-};
-
-export type PanProps = {
-  size?: Size;
-  value?: number;
-  onChange?: (change: PanChange) => any;
-  onReady?: (pan: Nexus.Pan) => any;
-};
-
-export type PanChange = { value: number; L: number; R: number };
-
-export type Pan2DProps = {
-  size?: Size;
-  range?: number;
-  mode?: "absolute" | "relative";
-  speakers?: [number, number][];
-  onChange?: (change: Pan2DChange) => any;
-  onReady?: (pan: Nexus.Pan2DProps) => any;
-};
-export type Pan2DChange = number[];
-
-```

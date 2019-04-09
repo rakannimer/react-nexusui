@@ -3,12 +3,13 @@ import * as React from "react";
 import * as Nexus from "nexusui";
 
 import { ToggleProps } from "../types";
-import { getId } from "../utils";
+import { getId, NO_OP } from "../utils";
 
 export const Toggle = React.memo(function Toggle({
   size = [120, 40],
   state,
-  onChange = () => {}
+  onChange = NO_OP,
+  onReady = NO_OP
 }: ToggleProps) {
   let toggle = React.useRef<null | Nexus.Toggle>(null);
   let elementId = React.useRef(`nexus-ui-toggle-${getId()}`);
@@ -17,6 +18,7 @@ export const Toggle = React.memo(function Toggle({
       size,
       state
     });
+    onReady(toggle.current);
     toggle.current.on("change", (newState: boolean) => {
       onChange(newState);
     });
