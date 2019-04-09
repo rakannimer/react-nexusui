@@ -1,5 +1,5 @@
 //@ts-ignore
-import { Nexus } from "nexusui";
+import Nexus from "nexusui";
 import * as React from "react";
 import { render } from "react-dom";
 import {

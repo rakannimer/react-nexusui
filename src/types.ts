@@ -123,7 +123,6 @@ export type SequencerProps = {
   onChange?: (change: SequencerChange) => any;
   onStep?: (change: boolean[]) => any;
   onReady?: (select: Nexus.Sequencer) => any;
-  r?: React.Ref<null | Nexus.Sequencer>;
 };
 
 export type SequencerChange = { row: number; column: number; state: boolean };
@@ -159,6 +158,6 @@ export type Pan2DProps = {
   mode?: "absolute" | "relative";
   speakers?: [number, number][];
   onChange?: (change: Pan2DChange) => any;
-  onReady?: (pan: Nexus.Pan2DProps) => any;
+  onReady?: (pan: Nexus.Pan2D) => any;
 };
 export type Pan2DChange = number[];
