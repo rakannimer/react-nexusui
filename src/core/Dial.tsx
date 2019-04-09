@@ -2,7 +2,7 @@ import * as React from "react";
 //@ts-ignore
 import * as Nexus from "nexusui";
 import { DialProps } from "../types";
-import { getId } from "../utils";
+import { getId, NO_OP } from "../utils";
 
 export const Dial = React.memo(function Dial({
   size,
@@ -11,7 +11,8 @@ export const Dial = React.memo(function Dial({
   min,
   mode,
   value,
-  onChange = () => {}
+  onChange = NO_OP,
+  onReady = NO_OP
 }: DialProps) {
   let dial = React.useRef<null | Nexus.Dial>(null);
   let elementId = React.useRef(`nexus-ui-dial-${getId()}`);
@@ -23,6 +24,7 @@ export const Dial = React.memo(function Dial({
       min,
       mode
     });
+    onReady(dial.current);
     dial.current.on("change", (newState: number) => {
       onChange(newState);
     });

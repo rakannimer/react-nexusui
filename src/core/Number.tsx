@@ -3,7 +3,7 @@ import * as React from "react";
 import * as Nexus from "nexusui";
 
 import { NumberProps } from "../types";
-import { getId } from "../utils";
+import { getId, NO_OP } from "../utils";
 import { DEFAULT_SIZE } from "../constants";
 
 export const Number = React.memo(function Number({
@@ -12,7 +12,8 @@ export const Number = React.memo(function Number({
   min,
   max,
   step,
-  onChange = () => {}
+  onChange = NO_OP,
+  onReady = NO_OP
 }: NumberProps) {
   let number = React.useRef<null | Nexus.Number>(null);
   let elementId = React.useRef(`nexus-ui-number-${getId()}`);
@@ -24,6 +25,7 @@ export const Number = React.memo(function Number({
       max,
       step
     });
+    onReady(number.current);
     number.current.on("change", (newState: number) => {
       onChange(newState);
     });

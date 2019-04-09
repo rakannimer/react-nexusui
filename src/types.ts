@@ -28,6 +28,7 @@ export type DialProps = {
   step?: number;
   value?: number;
   onChange?: (value: number) => any;
+  onReady?: (dial: Nexus.Dial) => any;
 };
 
 export type NumberProps = {
@@ -37,6 +38,7 @@ export type NumberProps = {
   step?: number;
   value?: number;
   onChange?: (value: number) => any;
+  onReady?: (number: Nexus.Number) => any;
 };
 
 export type PositionProps = {
