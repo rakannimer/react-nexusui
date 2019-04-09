@@ -37,7 +37,7 @@ npm i nexusui react-nexusui
 ## Usage
 
 ```typescript
-import {TextButton, Dial} from 'react-nexusui';
+import { TextButton, Dial } from 'react-nexusui';
 
 function App(){
   return <div>
@@ -48,8 +48,9 @@ function App(){
 
 ## Demo
 
-[Source code](/demo/index.tsx)
-[Output](https://react-nexusui-demo.surge.sh/)
+- [Source code](/demo/index.tsx)
+
+- [Output](https://react-nexusui-demo.surge.sh/)
 
 ## API 
 
