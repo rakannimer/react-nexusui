@@ -28,7 +28,6 @@ export const Button = React.memo(function Button({
     if (!Array.isArray(size)) {
       return;
     }
-    console.log("resizing button");
     button.current.resize(...size);
   }, size);
   React.useEffect(
