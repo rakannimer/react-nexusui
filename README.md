@@ -89,7 +89,7 @@ type DialProps = {
 
 ```typescript
 type NumberProps = {
-  size?: Size;
+  size?: [number, number];
   min?: number;
   max?: number;
   step?: number;
@@ -155,7 +155,7 @@ export type ToggleProps = {
 
 ```typescript
 type EnvelopeProps = {
-  size?: Size;
+  size?: [number, number];
   noNewPoints?: boolean;
   points?: { x: number; y: number }[];
   onChange?: (points: { x: number; y: number }[]) => any;
@@ -167,7 +167,7 @@ type EnvelopeProps = {
 
 ```typescript
 type MultisliderProps = {
-  size?: Size;
+  size?: [number, number];
   numberOfSliders?: number;
   min?: number;
   max?: number;
@@ -185,7 +185,7 @@ type MultisliderProps = {
 
 ```typescript
 type PianoProps = {
-  size?: Size;
+  size?: [number, number];
   mode?: "button" | "toggle" | "impulse";
   lowNote?: number;
   highNote?: number;
@@ -198,7 +198,7 @@ type PianoProps = {
 
 ```typescript
 type RadioButtonProps = {
-  size?: Size;
+  size?: [number, number];
   numberOfButtons?: number;
   active?: number;
   onReady?: (button: Nexus.RadioButton) => any;
@@ -210,7 +210,7 @@ type RadioButtonProps = {
 
 ```typescript
 type SelectProps = {
-  size?: Size;
+  size?: [number, number];
   options: string[];
   value?: string;
   selectedIndex?: number;
@@ -224,7 +224,7 @@ type SelectProps = {
 
 ```typescript
 type SequencerProps = {
-  size?: Size;
+  size?: [number, number];
   mode?: ButtonProps["mode"];
   rows?: number;
   columns?: number;
@@ -238,7 +238,7 @@ type SequencerProps = {
 
 ```typescript
 type TextButtonProps = {
-  size?: Size;
+  size?: [number, number];
   state?: boolean;
   text?: string;
   alternateText?: string;
@@ -253,7 +253,7 @@ type TextButtonProps = {
 
 ```typescript
 type TiltProps = {
-  size?: Size;
+  size?: [number, number];
   active?: boolean;
   onChange?: (change: { x: number; y: number; z: number }) => any;
   onReady?: (tilt: Nexus.Tilt) => any;
@@ -266,7 +266,7 @@ type TiltProps = {
 
 ```typescript
 type PanProps = {
-  size?: Size;
+  size?: [number, number];
   value?: number;
   onChange?: (change: { value: number; L: number; R: number }) => any;
   onReady?: (pan: Nexus.Pan) => any;
@@ -277,7 +277,7 @@ type PanProps = {
 
 ```typescript
 type Pan2DProps = {
-  size?: Size;
+  size?: [number, number];
   range?: number;
   mode?: "absolute" | "relative";
   speakers?: [number, number][];
