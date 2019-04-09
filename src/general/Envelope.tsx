@@ -2,13 +2,14 @@ import * as React from "react";
 //@ts-ignore
 import * as Nexus from "nexusui";
 import { EnvelopeProps } from "../types";
-import { getId } from "../utils";
+import { getId, NO_OP } from "../utils";
 
 export const Envelope = React.memo(function Envelope({
   size,
   noNewPoints,
   points = [],
-  onChange = () => {}
+  onChange = NO_OP,
+  onReady = NO_OP
 }: EnvelopeProps) {
   let envelope = React.useRef<null | Nexus.Envelope>(null);
   let elementId = React.useRef(`nexus-ui-envelope-${getId()}`);

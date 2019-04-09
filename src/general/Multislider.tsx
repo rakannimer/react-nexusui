@@ -2,7 +2,7 @@ import React from "react";
 //@ts-ignore
 import * as Nexus from "nexusui";
 import { MultisliderProps } from "../types";
-import { getId } from "../utils";
+import { getId, NO_OP } from "../utils";
 
 export const Multislider = React.memo(function Multislider({
   size,
@@ -12,7 +12,8 @@ export const Multislider = React.memo(function Multislider({
   step,
   values,
   candycane,
-  onChange = () => {}
+  onChange = NO_OP,
+  onReady = NO_OP
 }: MultisliderProps) {
   let multislider = React.useRef<null | Nexus.Multislider>(null);
   let elementId = React.useRef(`nexus-ui-multislider-${getId()}`);
@@ -26,6 +27,7 @@ export const Multislider = React.memo(function Multislider({
       values,
       candycane
     });
+    onReady(multislider.current);
     multislider.current.on(
       "change",
       (newState: { index: number; value: number }) => {

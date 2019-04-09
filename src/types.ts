@@ -70,6 +70,7 @@ export type EnvelopeProps = {
   noNewPoints?: boolean;
   points?: { x: number; y: number }[];
   onChange?: (points: { x: number; y: number }[]) => any;
+  onReady?: (envelope: Nexus.Envelope) => any;
 };
 
 export type MultisliderProps = {
@@ -83,6 +84,7 @@ export type MultisliderProps = {
   smoothing?: number;
   mode?: "bar" | "line";
   onChange?: (change: { index: number; value: number }) => any;
+  onReady?: (multislider: Nexus.Multislider) => any;
 };
 
 export type PianoProps = {
