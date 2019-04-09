@@ -53,6 +53,7 @@ export type PositionProps = {
   stepX?: number;
   stepY?: number;
   onChange?: (value: { x: number; y: number }) => any;
+  onReady?: (position: Nexus.Position) => any;
 };
 export type SliderProps = {
   size?: Size;
@@ -62,6 +63,7 @@ export type SliderProps = {
   step?: number;
   value?: number;
   onChange?: (value: number) => any;
+  onReady?: (slider: Nexus.Slider) => any;
 };
 export type EnvelopeProps = {
   size?: Size;

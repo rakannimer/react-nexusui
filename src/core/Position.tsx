@@ -3,7 +3,7 @@ import * as React from "react";
 import * as Nexus from "nexusui";
 
 import { PositionProps } from "../types";
-import { getId } from "../utils";
+import { getId, NO_OP } from "../utils";
 import { DEFAULT_SIZE } from "../constants";
 
 export const Position = React.memo(function Position({
@@ -16,7 +16,8 @@ export const Position = React.memo(function Position({
   maxY,
   stepX,
   stepY,
-  onChange = () => {}
+  onChange = NO_OP,
+  onReady = NO_OP
 }: PositionProps) {
   let position = React.useRef<null | Nexus.Position>(null);
   let elementId = React.useRef(`nexus-ui-position-${getId()}`);
@@ -32,6 +33,7 @@ export const Position = React.memo(function Position({
       stepX,
       stepY
     });
+    onReady(position.current);
     position.current.on("change", (newState: { x: number; y: number }) => {
       onChange(newState);
     });

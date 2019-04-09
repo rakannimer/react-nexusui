@@ -3,7 +3,7 @@ import * as React from "react";
 import * as Nexus from "nexusui";
 
 import { SliderProps } from "../types";
-import { getId } from "../utils";
+import { getId, NO_OP } from "../utils";
 import { DEFAULT_SIZE } from "../constants";
 
 export const Slider = React.memo(function Slider({
@@ -12,7 +12,8 @@ export const Slider = React.memo(function Slider({
   min,
   max,
   step,
-  onChange = () => {}
+  onChange = NO_OP,
+  onReady = NO_OP
 }: SliderProps) {
   let slider = React.useRef<null | Nexus.Slider>(null);
   let elementId = React.useRef(`nexus-ui-slider-${getId()}`);
@@ -24,6 +25,7 @@ export const Slider = React.memo(function Slider({
       max,
       step
     });
+    onReady(slider.current);
     slider.current.on("change", (newState: number) => {
       onChange(newState);
     });
