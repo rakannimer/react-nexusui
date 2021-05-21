@@ -2,7 +2,7 @@
   "include": ["./src/"],
   "compilerOptions": {
     "target": "ES2015",
-    "module": "commonjs",
+    "module": "esnext",
     "lib": ["es2018", "dom"],
     "jsx": "react",
     "declaration": true,
@@ -11,6 +11,7 @@
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "strict": true,
-    "noImplicitAny": false
+    "noImplicitAny": false,
+    "rootDir": "src/"
   }
 }

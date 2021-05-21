@@ -1,4 +1,4 @@
-import typescript from "rollup-plugin-typescript2";
+import typescript from "@rollup/plugin-typescript";
 
 export default [
   {
@@ -15,15 +15,7 @@ export default [
     ],
     external: ["react", "nexusui"],
     plugins: [
-      typescript({
-        typescript: require("typescript"),
-        abortOnError: false,
-        tsconfigOverride: {
-          compilerOptions: {
-            module: "ES2015"
-          }
-        }
-      })
+      typescript()
     ]
   }
 ];
