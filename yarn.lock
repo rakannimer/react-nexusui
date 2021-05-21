@@ -4487,7 +4487,7 @@ natural-compare@^1.4.0:
   resolved "https://registry.yarnpkg.com/natural-compare/-/natural-compare-1.4.0.tgz#4abebfeed7541f2c27acfb29bdbbd15c8d5ba4f7"
   integrity sha1-Sr6/7tdUHywnrPspvbvRXI1bpPc=
 
-nexusui@^2.0.10:
+nexusui@^2.1.6:
   version "2.1.6"
   resolved "https://registry.yarnpkg.com/nexusui/-/nexusui-2.1.6.tgz#318fa9ddf9a6a5c717892c0cafd9cfbcc28fa65e"
   integrity sha512-tAtYZE82R8wvOp1GeW59TWCjSZksI5OVr+yS7tvF0LXOQnWkQW/WWCa7nqPeVXU7m1L3YjS+w76SnglpGOjA3w==
